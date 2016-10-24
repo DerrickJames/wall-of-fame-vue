@@ -1,8 +1,7 @@
 {
-  "name": "vuikit-install",
+  "name": "wall-of-fame-vue",
   "version": "0.1.0",
-  "description": "My Superb Vue Project",
-  "main": "client/index.js",
+  "description": "Vuejs 2 Boilerplate: Vue2, Vuex2, Vue-Router2, Bootstrap3",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
