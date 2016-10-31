@@ -25,8 +25,14 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div id="app" class="container" style="margin-top: 70px;">
+    <div class="container" style="margin-top: 70px;">
       <router-view></router-view>
     </div>
   </div>
 </template>
+
+<script>
+  // Don't need to import vue or vue-router because
+  // already imported (have it loaded) in our root file, router.js
+  // which means we have access to vue or vue-router globally.
+</script>
