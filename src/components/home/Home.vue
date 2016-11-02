@@ -25,25 +25,9 @@
     },
 
     methods: {
-      // By this approach, instead of using the long approach using a dispatch,
-      // we can simply map the store actions to vuejs "this." keyword
-
-      // // simply mapping this.delete() note to this.$store.dispatch('deleteNote')
-      // ...mapActions({
-      //   deleteNote: 'deleteNote'
-      // })
-
-      // INSTEAD of doing mapActions, we could do...
       deleteNote() {
-        return this.$store.dispatch('deleteNote') // dispatch allows you to chain, b/c of the promise, where .commit does not
+        return this.$store.dispatch('deleteNote') 
       }
-      // eg: deleteNote() => this.$store.dispatch('deleteNote')
-      //                                .then(()=> {  } ) // NO async action to perform, so nothing to do and we'd get an error
-
-      // Use dispatch when you are expecting to get a response back, eg if you are hitting an API where you always get a success or error response, when you use dispatch, you can respond to your user depending on response.
-
-      // Can also do .commit
-      // deleteNote() => this.$store.commit('deleteNote')
     }
   }
 </script>
