@@ -9,7 +9,6 @@ import { ABOUT_ROUTES } from './components/about/about-routes';
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
-//Vue.use(Vuex);
 
 export const router = new VueRouter({
   routes: [

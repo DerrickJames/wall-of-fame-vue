@@ -6,7 +6,7 @@
       <ul class="list-group">
         <li class="list-group-item" v-for="note in notes">
           {{note.text}}
-          <a class="btn btn-default" @click="deleteNote" href="#">X</a>
+          <a class="btn btn-default" @click="removeNote" href="#">X</a>
         </li>
       </ul>
     </div>
@@ -15,19 +15,19 @@
 
 <script>
   // mapActions maps our actions to any property name we want to access
-  import { mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     computed: {
-      notes() {
-        return this.$store.state.notes;
-      }
+      ...mapGetters({
+        notes: 'allNotes'
+      })
     },
 
     methods: {
-      deleteNote() {
-        return this.$store.dispatch('deleteNote')
-      }
+      ...mapActions({
+        removeNote: 'deleteNote'
+      })
     }
   }
 </script>

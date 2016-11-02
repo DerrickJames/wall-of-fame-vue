@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import * as actions from './actions';
+import * as getters from './getters';
+import { ADD_NOTE, DELETE_NOTE } from './constants';
 
 Vue.use(Vuex);
 
@@ -13,7 +16,7 @@ const initialState = {
 };
 
 const mutations = {
-  ADD_NOTE (state) {
+  [ADD_NOTE] (state) {
     const newNote = {
       id: 4,
       text: 'New note.',
@@ -24,21 +27,16 @@ const mutations = {
     state.activeNoteID = newNote.id;
   },
 
-  DELETE_NOTE (state) {
+  [DELETE_NOTE] (state) {
     const notes = state.notes.filter(note => note.id !== state.activeNoteID);
     state.notes = notes;
     state.activeNoteID = state.notes[0].id;
   }
 };
 
-const actions = {
-  deleteNote(context) {
-    context.commit('DELETE_NOTE');
-  }
-};
-
 export default new Vuex.Store({
   state: initialState,
   mutations,
-  actions
+  actions,
+  getters
 });
