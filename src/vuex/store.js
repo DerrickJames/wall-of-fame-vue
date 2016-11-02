@@ -5,29 +5,29 @@ Vue.use(Vuex);
 
 const initialState = {
   notes: [
-    { text: 'First Note', favouite: false },
-    { text: 'Second Note', favouite: false },
-    { text: 'Third Note', favouite: false }
+    { id: 1, text: 'First Note', favorite: false },
+    { id: 2, text: 'Second Note', favorite: false },
+    { id: 3, text: 'Third Note', favorite: false }
   ],
-  activeNote: {text: 'First Note', favorite: false}
+  activeNoteID: 1
 };
 
 const mutations = {
   ADD_NOTE (state) {
     const newNote = {
+      id: 4,
       text: 'New note.',
       favorite: false
     };
 
     state.notes.push(newNote);
-    state.activeNote = newNote;
+    state.activeNoteID = newNote.id;
   },
 
   DELETE_NOTE (state) {
-    //state.notes.$remove(state.activeNote);
-    const notes = state.notes.filter(note => note.text != state.activeNote.text);
+    const notes = state.notes.filter(note => note.id !== state.activeNoteID);
     state.notes = notes;
-    state.activeNote = state.notes[0];
+    state.activeNoteID = state.notes[0].id;
   }
 };
 
