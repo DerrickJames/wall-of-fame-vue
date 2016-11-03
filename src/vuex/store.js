@@ -16,6 +16,13 @@ const initialState = {
 };
 
 const mutations = {
+  // es5, you are simply *naming* the function addNote()
+  // addNote(state) {
+
+  // In es6, you are now *naming* this fuction (the string) 'ADD_NOTE'
+    // Notice, we are using the ADD_NOTE const variable,
+    // from constants.js, which give us the 'ADD_NOTE' string.
+  // This is es6 "dynamic name placeholder" syntax
   [ADD_NOTE] (state) {
     const newNote = {
       id: 4,
