@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import * as actions from './actions';
 import * as getters from './getters';
+import * as mutations from './mutations';
 import { ADD_NOTE, DELETE_NOTE } from './constants';
 
 Vue.use(Vuex);
@@ -15,28 +16,28 @@ const initialState = {
   activeNoteID: 1
 };
 
-const mutations = {
-  [ADD_NOTE] (state) {
-    const newNote = {
-      id: 4,
-      text: 'New note.',
-      favorite: false
-    };
+// const mutations = {
+//   [ADD_NOTE] (state) {
+//     const newNote = {
+//       id: 4,
+//       text: 'New note.',
+//       favorite: false
+//     };
 
-    state.notes.push(newNote);
-    state.activeNoteID = newNote.id;
-  },
+//     state.notes.push(newNote);
+//     state.activeNoteID = newNote.id;
+//   },
 
-  [DELETE_NOTE] (state) {
-    const notes = state.notes.filter(note => note.id !== state.activeNoteID);
-    state.notes = notes;
-    state.activeNoteID = state.notes[0].id;
-  }
-};
+//   [DELETE_NOTE] (state) {
+//     const notes = state.notes.filter(note => note.id !== state.activeNoteID);
+//     state.notes = notes;
+//     state.activeNoteID = state.notes[0].id;
+//   }
+// };
 
 export default new Vuex.Store({
   state: initialState,
-  mutations,
-  actions,
-  getters
+  ...mutations, //WORKS!!  I GUESSED THIS!  Remind me, what does it do??
+  actions,      // we are passing *the properties* of mutations,
+  getters       // (bacically into some? constructor) ???  PLEASE EXPLAIN AGAIN
 });
