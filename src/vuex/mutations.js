@@ -2,10 +2,11 @@ import { ADD_NOTE, DELETE_NOTE } from './constants';
 
 export const mutations = {
   [ADD_NOTE] (state, theNewNote) {
-    console.log(theNewNote)
     const newNote = {
-      id: 4,
-      text: 'New note.',
+      // state.notes.length gets the number of elements in the notes array
+      id: state.notes.length + 1, // we're incrementing the notes IDS automatically
+      // we're assigning our new note value to the text property
+      text: theNewNote,
       favorite: false
     };
 
