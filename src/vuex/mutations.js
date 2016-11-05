@@ -17,6 +17,7 @@ export const mutations = {
   [DELETE_NOTE] (state) {
     const notes = state.notes.filter(note => note.id !== state.activeNoteID);
     state.notes = notes;
-    state.activeNoteID = state.notes[0].id;
+
+    if (state.notes.length > 0) state.activeNoteID = state.notes[0].id;
   }
 };
