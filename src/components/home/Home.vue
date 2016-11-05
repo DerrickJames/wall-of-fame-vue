@@ -1,21 +1,35 @@
 <template>
   <div>
-    <h3>Wall Of Fame</h3>
-    <p>Wall Of Fame client side implementation using Vue 2.0, Vue-Router 2.0 and Vuex</p>
-    <div class="col-sm-4">
-      <ul class="list-group">
-        <li class="list-group-item" v-for="note in notes">
-          {{note.text}}
-          <a class="btn btn-default" @click="removeNote" href="#">X</a>
-        </li>
-      </ul>
+    <div class="col-md-4">
+      <h3>Wall Of Fame</h3>
+      <hr>
+      <div>
+        <!-- FOR Vuejs <input v-model="theNewNote" class="form-control" type="text"> -->
+
+        <!-- For Vuex -->
+        <input
+          @keyup.enter="addNote"
+          class="form-control"
+          type="text"
+          placeholder="Add a new note">
+      </div>
+
+      <hr>
+
+      <div>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="note in notes">
+            {{note.text}}
+            <a class="btn btn-default" @click="removeNote" href="#">X</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  // mapActions maps our actions to any property name we want to access
-  import { mapActions, mapGetters } from 'vuex';
+  import { mapActions, mapGetters, mapState } from 'vuex';
 
   export default {
     computed: {
@@ -26,6 +40,7 @@
 
     methods: {
       ...mapActions({
+        addNote: 'addNote',
         removeNote: 'deleteNote'
       })
     }
