@@ -6,6 +6,8 @@ export const addNote = ({ commit }, event ) => {
   // event.target.value simply accesses the DOM keyboard enter event triggered
   // once the user has entered data into the input element and presses the enter
   // key on the keyboard and pulls the data from the event object
+
+  // "event" and "event.target" are built into Javascript
   const newNote = event.target.value;
 
   // newNote.trim() simply trims off any white spaces at the start and end of
