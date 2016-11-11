@@ -5,7 +5,6 @@ export const mutations = {
   // Calling local variable, newNoteText, but we passed in newNoteText in actions.
   [ADD_NOTE] (state, newNoteText) {
     const newNote = {
-      // state.notes.length gets the number of elements in the notes array
       id: state.notes.length + 1, // we're incrementing the notes IDS automatically
       // we're assigning our new note value to the text property
       text: newNoteText,
