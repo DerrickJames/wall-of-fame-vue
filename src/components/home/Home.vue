@@ -4,9 +4,7 @@
       <h3>Wall Of Fame</h3>
       <hr>
       <div>
-        <!-- FOR Vuejs <input v-model="theNewNote" class="form-control" type="text"> -->
-
-        <!-- For Vuex -->
+        <!-- executing the "Action" (aka the "event handler") addNote, which we wrote in Actions.js -->
         <input
           @keyup.enter="addNote"
           class="form-control"
@@ -20,7 +18,9 @@
         <ul class="list-group">
           <li class="list-group-item" v-for="note in notes">
             {{note.text}}
-            <a class="btn btn-default" @click="removeNote" href="#">X</a>
+            <!-- Before we added areYouSure() -->
+            <!-- <a class="btn btn-default" @click="removeNote" href="#">X</a> -->
+            <a class="btn btn-default" @click="areYouSure" href="#">X</a>
           </li>
         </ul>
       </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters, mapState } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     computed: {
@@ -39,6 +39,11 @@
     },
 
     methods: {
+      // Use of local method
+      areYouSure(){
+        const confirmOrNot = confirm("Are you sure?"); // confirm() returns bool
+        if (confirmOrNot) { return this.removeNote(); } // we use "this." to access methods/data b/c we are INSIDE the same object
+      },
       ...mapActions({
         addNote: 'addNote',
         removeNote: 'deleteNote'
