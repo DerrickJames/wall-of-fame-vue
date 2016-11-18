@@ -2,17 +2,11 @@ import { ADD_NOTE, DELETE_NOTE } from './constants';
 
 export const mutations = {
   [ADD_NOTE] (state, newNoteObj) {
-
-    console.log(newNoteObj);
     newNoteObj.id = state.notes.length + 1;
     newNoteObj.favorite = false;
-    console.log(newNoteObj);
 
     state.notes.push(newNoteObj);
-    console.log(state);
-
     state.activeNoteID = newNoteObj.id;
-
   },
 
   [DELETE_NOTE] (state) {
