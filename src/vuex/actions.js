@@ -1,4 +1,5 @@
 import { ADD_NOTE, DELETE_NOTE } from './constants';
+import toastr from 'toastr'; // note, this is an npm package, so we don't do "from './...' "
 
 // using the addNote mutation, from mutations.js
 export const addNote = ({ commit }) => {
@@ -6,13 +7,16 @@ export const addNote = ({ commit }) => {
   // validating text and body not empty
   const newText = document.getElementById('text').value
   if (newText.trim().length == 0) {
-    // if we return nothing, it will exit, will simply stop running
-    return;
+    // // if we return nothing, it will exit, will simply stop running
+    // return;
+
+    // use toastr to give a popup with an error message
+    return toastr.error("You need to fill this out, dude!");
   }
 
   const newBody = document.getElementById('body').value
   if (newBody.trim().length == 0) {
-    return;
+    return toastr.error("Fill in the body, fool.");
   }
 
   // This is a new object, not a function:
