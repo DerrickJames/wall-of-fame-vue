@@ -6,6 +6,7 @@ import VueResource from 'vue-resource';
 import store from './vuex/store';
 import { HOME_ROUTES } from './components/home/home-routes';
 import { ABOUT_ROUTES } from './components/about/about-routes';
+import '../node_modules/toastr/build/toastr.min.css';
 
 Vue.use(VueResource);
 Vue.use(VueRouter);

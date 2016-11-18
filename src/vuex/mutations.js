@@ -1,18 +1,12 @@
 import { ADD_NOTE, DELETE_NOTE } from './constants';
 
 export const mutations = {
-  // in Actions, we passed in the newNoteText as a "payload" (payload is always 2nd argument, 1st is state).
-  // Calling local variable, newNoteText, but we passed in newNoteText in actions.
-  [ADD_NOTE] (state, newNoteText) {
-    const newNote = {
-      id: state.notes.length + 1, // we're incrementing the notes IDS automatically
-      // we're assigning our new note value to the text property
-      text: newNoteText,
-      favorite: false
-    };
+  [ADD_NOTE] (state, newNoteObj) {
+    newNoteObj.id = state.notes.length + 1;
+    newNoteObj.favorite = false;
 
-    state.notes.push(newNote);
-    state.activeNoteID = newNote.id;
+    state.notes.push(newNoteObj);
+    state.activeNoteID = newNoteObj.id;
   },
 
   [DELETE_NOTE] (state) {
