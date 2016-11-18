@@ -6,10 +6,6 @@ import VueResource from 'vue-resource';
 import store from './vuex/store';
 import { HOME_ROUTES } from './components/home/home-routes';
 import { ABOUT_ROUTES } from './components/about/about-routes';
-
-// We are loading all our stylesheets (our css) as modules using webpack
-// We do it here in router.js (our root file aka our entry point), so 
-// that it is available globally
 import '../node_modules/toastr/build/toastr.min.css';
 
 Vue.use(VueResource);

@@ -5,7 +5,6 @@
       <hr>
       <div>
 
-      <!-- note, changed to use id="text" b/c name="text" return an array. id easier. -->
         <input
           id="text"
           @keyup.enter="addNote"
@@ -28,7 +27,6 @@
           <li class="list-group-item" v-for="note in notes">
             <h4>Title: {{note.text}}</h4>
             <span>Body: {{note.body}}</span>
-            <!-- Before we added areYouSure() -->
             <a class="btn btn-default" @click="removeNote" href="#">X</a>
             <!-- <a class="btn btn-default" @click="areYouSure" href="#">X</a> -->
           </li>
