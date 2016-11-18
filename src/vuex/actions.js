@@ -1,21 +1,17 @@
 import { ADD_NOTE, DELETE_NOTE } from './constants';
 
-export const addNote = ({ commit }, event ) => {
+// using the addNote mutation, from mutations.js
+export const addNote = ({ commit }) => {
 
   const newNoteObj = {
-    text: '',
-    body: ''
+    text: document.getElementById('text').value,
+    body: document.getElementById('body').value
   };
 
-  // Trying to access the name of the input element the user is currently editing, by "name"
-  const fieldName = event.target.name;
-  const newNoteValue = event.target.value;
-
-  if (newNoteValue.trim()) {  
-    newNoteObj[fieldName] = newNoteValue;
-    commit(ADD_NOTE, newNoteObj);
-  }
-  
+  console.log(newNoteObj);
+  // run the ADD_NOTE mutation
+  // Vuex knows how to import & call the mutations for us
+  commit(ADD_NOTE, newNoteObj);
 };
 
 export const deleteNote = ({ commit }) => {

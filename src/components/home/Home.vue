@@ -5,14 +5,15 @@
       <hr>
       <div>
 
+      <!-- note, changed to use id="text" b/c name="text" return an array. id easier. -->
         <input
-          name="text"
+          id="text"
           @keyup.enter="addNote"
           class="form-control"
           type="text"
           placeholder="Add a new note">
         <input
-          name="body" 
+          id="body" 
           @keyup.enter="addNote"
           class="form-control"
           type="text"
